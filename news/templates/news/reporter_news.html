@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}{{reporter.full_name}}'s News{% endblock%}
+{% block page-content %}
+<h3>{{reporter.full_name}}'s News</h3>
+<hr>
+{% for article in reporter.article_set.all %}
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <a href="{% url 'news:details' article.id %}">{{ article.headline }}</a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <p>{{ article.content }}</p>
+        </div>
+        <div class="panel-footer">
+            By {{ reporter.full_name }} published at {{ article.pub_date }}
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

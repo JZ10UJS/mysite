@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}News Details{% endblock%}
+{% block page-content %}
+<h3>{{article.headline}}  <small>【{{article.views_count}}人次阅读】</small></h3>
+<p>By <strong>{{article.reporter}}</strong> published at <strong>{{article.pub_date}}</strong></p>
+<p>{{article.content|safe}}</p>
+{% endblock %}
